@@ -1,0 +1,45 @@
+Cuenta: bancos
+Tipo: Activo
+Saldo: 89100.0
+Cuenta: capital social
+Tipo: Pasivo
+Saldo: 100000.0
+Cuenta: equipo de oficina
+Tipo: Activo
+Saldo: 11400.0
+Cuenta: acreedores
+Tipo: Pasivo
+Saldo: 8400.0
+Cuenta: almacen
+Tipo: Activo
+Saldo: 0.0
+Cuenta: proovedores
+Tipo: Pasivo
+Saldo: 15000.0
+Cuenta: deudores diversos
+Tipo: Pasivo
+Saldo: -600.0
+Cuenta: ventas
+Tipo: Ventas
+Saldo: 27000.0
+Cuenta: clientes
+Tipo: Activo
+Saldo: 5400.0
+Cuenta: costo de ventas
+Tipo: Costo de Ventas
+Saldo: 20000.0
+Cuenta: documentos por cobrar
+Tipo: Pasivo
+Saldo: -12600.0
+Cuenta: gastos de operacion
+Tipo: Gastos de Operación
+Saldo: -4300.0
+Cuenta: pagos anticipados
+Tipo: Activo
+Saldo: 2000.0
+Balanza de Movimientos
+Total Movimientos Deudores: 198100.0
+Total Movimientos Acreedores: 203100.0
+Balanza de Saldos
+Total Saldos Deudores: 132200.0
+Total Saldos Acreedores: 163600.0
