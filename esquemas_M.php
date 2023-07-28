@@ -85,17 +85,26 @@
         <input type="text" id="numero" name="numero" min="1" required>
         <button class="btn btn-success editbtn" id="btnGenerar">Generar</button><br><br>
         <div id="camposContainer"></div><br>
-        <button class="btn btn-success editbtn" name="GuardarEsquema" id="btnEnviar" style="display: none;">Crear</button>
+        <button class="btn btn-success editbtn" name="GuardarEsquema" id="btnEnviar" style="display: none;">Crear</button><br>
         </form>
     </div>
     </div>
   </div>
 </div>
 </div>
+<br>
 
 
 
 
+    <?php
+    // Incluimos el archivo funciones.php
+    include 'funciones.php';
+    
+
+    // Llamamos a la función para mostrar los esquemas
+    consultarEsquemas();
+    ?>
 
 
 
@@ -163,9 +172,7 @@
             modal.style.display = "none";
         };
     </script>
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

@@ -21,8 +21,7 @@ if(isset($_POST['GuardarEsquema'])){
   $ID = $_POST['ID'];
   
   guardarEsquema($nombre_esquema, $tipo_cuenta, $numero, $cuenta);
-  guardarMontos($numero, $cuenta, $ID);
-
+  guardarMontos($numero, $cuenta, $nombre_esquema, $ID);
   
 
   echo '<script type="text/javascript">
