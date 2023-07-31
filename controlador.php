@@ -32,6 +32,16 @@ if(isset($_POST['GuardarEsquema'])){
   </script>';
 }
 
+//if isset del boton btnEliminar con mensaje de exito y fracaso
+if(isset($_POST['btnEliminar'])){
+  $cuenta = $_POST['cuenta'];
+  eliminarCuenta($cuenta);
+  echo '<script type="text/javascript">
+  alert("Cuenta eliminada con exito");
+  window.location.href="cuentas.php";
+  </script>';
+}
+
 
 
 

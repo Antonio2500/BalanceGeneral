@@ -6,6 +6,7 @@
     <title>Cuentas</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"  rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
     /* Estilos para el contenedor */
@@ -56,21 +57,15 @@
     <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
         <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
             <tr>
-                <th scope="col" class="px-6 py-3">
+                <th style='text-align: center;' scope="col" class="px-6 py-3">
                     ID de la cuenta
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th style='text-align: center;' scope="col" class="px-6 py-3">
                     Cuenta
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th style='text-align: center;' scope="col" class="px-6 py-3">
                     Ver cuenta
                 </th>
-                <!-- <th scope="col" class="px-6 py-3">
-                    Eliminar
-                </th>
-                // <td class="px-6 py-4">
-                //<button onclick="window.location.href = \'eliminar.php?ID='.$cuentasM['ID']."&cuenta=".$cuentasM['cuenta'].'\';" type="button" class="btn btn-secondary">Eliminar</button>
-                // </td> -->
             </tr>
         </thead>
         <tbody>
@@ -80,13 +75,13 @@ $tabla= consultarCuentas();
 
 while ($cuentasM= mysqli_fetch_array($tabla)) {
             echo'<tr class="bg-blue-500 border-b border-blue-400">
-                <td class="px-6 py-4"><center>'
+                <td style="text-align: center;" class="px-6 py-4"><center>'
                     .$cuentasM['ID'].
                 '</center></td>
-                <td class="px-6 py-4">'
+                <td style="text-align: center;" class="px-6 py-4">'
                     .$cuentasM['cuenta'].
                 '</td>
-                <td class="px-6 py-4">
+                <td style="text-align: center;" class="px-6 py-4">
                     <a href="esquemas_M.php?ID='.$cuentasM['ID']."&cuenta=".$cuentasM['cuenta'].'" class="btn btn-secondary">Ver</a>
                 </td>
             </tr>';
@@ -96,7 +91,6 @@ while ($cuentasM= mysqli_fetch_array($tabla)) {
     </table>
   </div>
 </div>;
-
 
 
 

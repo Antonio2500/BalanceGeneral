@@ -45,11 +45,98 @@
 <br>
 
 
-    <?php
+<?php
 
-    
-    
-    ?>
+//incluir el archivo de conexion
+include 'funciones.php';
+
+//conexion a la base de datos
+$conexion = conectarBD();
+
+//encontramos el nombre Costo de ventas, Ventas y Gastos de operacion de la tabla ${cuenta}_balanza
+$sql = "SELECT * FROM ${cuenta}_balanza WHERE NombreEsquema = 'Costo de ventas' OR NombreEsquema = 'Ventas' OR NombreEsquema = 'Gastos de operacion' AND ${cuenta}_ID = $ID";
+
+//ejecucion de la consulta
+$resultado = $conexion->query($sql);
+
+//inicializamos las variables para las sumas
+$suma_ventas_deudor = 0;
+$suma_ventas_acreedor = 0;
+$suma_costo_de_ventas_deudor = 0;
+$suma_costo_de_ventas_acreedor = 0;
+$suma_gastos_de_operacion_deudor = 0;
+$suma_gastos_de_operacion_acreedor = 0;
+
+//si el resultado es mayor a 0
+if ($resultado->num_rows > 0) {
+    //mientras existan filas
+    while ($fila = $resultado->fetch_assoc()) {
+        // Realizamos las sumas para las filas específicas
+        if ($fila['NombreEsquema'] === 'Ventas') {
+            $suma_ventas_deudor += $fila['Total_saldo_deudor'];
+            $suma_ventas_acreedor += $fila['Total_saldo_acreedor'];
+        } elseif ($fila['NombreEsquema'] === 'Costo de ventas') {
+            $suma_costo_de_ventas_deudor += $fila['Total_saldo_deudor'];
+            $suma_costo_de_ventas_acreedor += $fila['Total_saldo_acreedor'];
+        } elseif ($fila['NombreEsquema'] === 'Gastos de operación') {
+            $suma_gastos_de_operacion_deudor += $fila['Total_saldo_deudor'];
+            $suma_gastos_de_operacion_acreedor += $fila['Total_saldo_acreedor'];
+        }
+    }
+}
+
+//cerrar la conexion
+$conexion->close();
+
+//imprimir la tabla con los totales
+echo "<div class='container'>";
+echo "<div class='table-container'>";
+echo "<table class='table table-hover table-dark'>";
+echo "<tr>";
+echo "<th colspan='2' style='text-align: center;'>Balanza de saldos</th>";
+echo "</tr>";
+echo "<tr>";
+echo "<th style='text-align: center;'>Nombre de las cuentas</th>";
+echo "<th style='text-align: center;'>Total saldo deudor</th>";
+echo "</tr>";
+
+// Filas para Ventas
+echo "<tr>";
+echo "<td style='text-align: center;'>Ventas</td>";
+echo "<td style='text-align: center;'>$suma_ventas_acreedor</td>";
+echo "</tr>";
+
+// Filas para Costo de ventas
+echo "<tr>";
+echo "<td style='text-align: center;'>Costo de ventas</td>";
+echo "<td style='text-align: center;'>$suma_costo_de_ventas_deudor</td>";
+echo "</tr>";
+
+// Total General
+$total_deudor = $suma_ventas_acreedor - $suma_costo_de_ventas_deudor;
+echo "<tr>";
+echo "<td style='text-align: center;'><strong></strong></td>";
+echo "<td style='text-align: center;'><strong>$total_deudor</strong></td>";
+echo "</tr>";
+
+// Filas para Gastos de operacion
+echo "<tr>";
+echo "<td style='text-align: center;'>Gastos de operacion</td>";
+echo "<td style='text-align: center;'>$suma_gastos_de_operacion_deudor</td>";
+echo "</tr>";
+
+$total_general = $total_deudor - $suma_gastos_de_operacion_deudor;
+// Filas para Gastos de operacion
+echo "<tr>";
+echo "<td style='text-align: center;'></td>";
+echo "<td style='text-align: center;'><strong>$total_general</strong></td>";
+echo "</tr>";
+
+echo "</table>";
+echo "</div>";
+echo "</div>";
+
+?>
 
 
   <script src="script.js"></script>
