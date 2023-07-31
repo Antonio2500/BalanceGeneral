@@ -24,11 +24,15 @@ if(isset($_POST['GuardarEsquema'])){
   guardarMontos($numero, $cuenta, $nombre_esquema, $ID);
   
 
+
+  //redireccion a la pagina de esquemas con el id y el nombre de la cuenta
   echo '<script type="text/javascript">
   alert("Esquema agregado con exito");
-  window.location.href="esquemas_M.php?ID='.$cuentasM['ID']."&cuenta=".$cuentasM['cuenta'].'";
+  window.location.href="esquemas_M.php?ID='.$ID.'&cuenta='.$cuenta.'";
   </script>';
 }
+
+
 
 
 

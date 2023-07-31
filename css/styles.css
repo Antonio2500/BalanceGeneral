@@ -30,9 +30,15 @@ button:hover {
   background-color: #45a049;
 }
 
+.tabla-esquema {
+  margin-bottom: 10px; /* Ajusta el valor según sea necesario */
+}
+
 
     /* Estilo personalizado para el sidebar */
     #sidebar {
       height: 100vh;
       background-color: #f8f9fa;
     }
+
+    

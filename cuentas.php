@@ -63,8 +63,14 @@
                     Cuenta
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Accion
+                    Ver cuenta
                 </th>
+                <!-- <th scope="col" class="px-6 py-3">
+                    Eliminar
+                </th>
+                // <td class="px-6 py-4">
+                //<button onclick="window.location.href = \'eliminar.php?ID='.$cuentasM['ID']."&cuenta=".$cuentasM['cuenta'].'\';" type="button" class="btn btn-secondary">Eliminar</button>
+                // </td> -->
             </tr>
         </thead>
         <tbody>
@@ -81,7 +87,7 @@ while ($cuentasM= mysqli_fetch_array($tabla)) {
                     .$cuentasM['cuenta'].
                 '</td>
                 <td class="px-6 py-4">
-                    <a href="esquemas_M.php?ID='.$cuentasM['ID']."&cuenta=".$cuentasM['cuenta'].'" class="font-medium text-white hover:underline">Editar</a>
+                    <a href="esquemas_M.php?ID='.$cuentasM['ID']."&cuenta=".$cuentasM['cuenta'].'" class="btn btn-secondary">Ver</a>
                 </td>
             </tr>';
         } 
